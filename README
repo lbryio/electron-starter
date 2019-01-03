@@ -1,0 +1,12 @@
+# LBRY Electron Starter
+
+This is a starter electron project for building apps on top of the LBRY SDK. It is a simple HTML page with the ability to resolve any URI.
+
+## How to run
+
+```
+git clone https://github.com/lbry-developers/electron-starter
+cd electron-starter
+yarn
+yarn dev
+```
