@@ -6,13 +6,9 @@ const createWindow = require("./create-window");
 const Daemon = require("./daemon");
 const IS_DEV = process.env.NODE_ENV === "development";
 
-console.log("starting?");
-
 // Auto-reload when we make changes
 if (IS_DEV) {
-  require("electron-reload")(__dirname, {
-    electron: path.join(__dirname, "node_modules", ".bin", "electron")
-  });
+  require("electron-reload")(__dirname);
 }
 
 // This method will be called when Electron has finished
