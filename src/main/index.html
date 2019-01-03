@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>LBRY Starter</title>
+  </head>
+  <style>
+    body: {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #resolve {
+      display: none;
+    }
+  </style>
+  <body>
+    <h1>Hello world</h1>
+    <div class="content">
+      <div id="loading">Starting daemon...</div>
+      <div id="resolve">
+        <input id="resolve-input" />
+        <button id="resolve-button">Resolve</button>
+        <p id="resolve-help"></p>
+
+        <pre id="claim"></pre>
+      </div>
+    </div>
+    <script>
+      require("../renderer/index.js");
+    </script>
+  </body>
+</html>
