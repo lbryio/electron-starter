@@ -17,26 +17,18 @@ if (IS_DEV) {
 app.on("ready", function() {
   createWindow();
 
-  const processListArgs =
-    process.platform === "win32" ? "lbrynet" : "lbrynet start";
+  // Determine if the LBRY SDK is already running, or if it needs to be started
+  // This allows you to run the sdk binary separately and have your app connect to it
+  const processListArgs = process.platform === "win32" ? "lbrynet" : "lbrynet start";
   findProcess("name", processListArgs).then(processList => {
     const isDaemonRunning = processList.length > 0;
 
     if (!isDaemonRunning) {
       daemon = new Daemon();
       daemon.on("exit", () => {
-        if (!isDev) {
-          daemon = null;
-          if (!appState.isQuitting) {
-            dialog.showErrorBox(
-              "Daemon has Exited",
-              "The daemon may have encountered an unexpected error, or another daemon instance is already running. \n\n" +
-                "For more information please visit: \n" +
-                "https://lbry.io/faq/startup-troubleshooting"
-            );
-          }
-          app.quit();
-        }
+        daemon = null;
+        dialog.showErrorBox("Daemon has Exited");
+        app.quit();
       });
       daemon.launch();
     }

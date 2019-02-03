@@ -8,32 +8,29 @@
     "dev": "NODE_ENV=development electron ./src/main/index.js",
     "postinstall": "node build/download-daemon.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/lbry-developers/lbry-electron-starter.git"
-  },
-  "author": "",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/lbry-developers/lbry-electron-starter/issues"
-  },
-  "homepage": "https://github.com/lbry-developers/lbry-electron-starter#readme",
   "dependencies": {
-    "electron": "^3.0.8",
+    "electron": "^4.0.4",
     "find-process": "^1.2.0",
     "lbry-redux": "lbryio/lbry-redux",
+    "node-fetch": "^2.3.0",
     "url": "^0.11.0"
   },
   "devDependencies": {
-    "axios": "^0.18.0",
     "decompress": "^4.2.0",
     "del": "^3.0.0",
     "electron-reload": "^1.2.5"
   },
   "lbrySettings": {
-    "lbrynetDaemonVersion": "0.30.0",
+    "lbrynetDaemonVersion": "0.30.4",
     "lbrynetDaemonUrlTemplate": "https://github.com/lbryio/lbry/releases/download/vDAEMONVER/lbrynet-OSNAME.zip",
-    "lbrynetDaemonDir": "static/daemon",
+    "lbrynetDaemonDir": "dist/daemon",
     "lbrynetDaemonFileName": "lbrynet"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lbry-developers/lbry-electron-starter.git"
+  },
+  "author": "https://github.com/lbryio/electron-starter/graphs/contributors",
+  "license": "MIT",
+  "homepage": "https://github.com/lbry-developers/lbry-electron-starter#readme"
 }

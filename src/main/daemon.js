@@ -3,21 +3,18 @@ const { spawn, execSync } = require("child_process");
 
 class Daemon {
   constructor() {
-    this.path =
-      process.env.LBRY_DAEMON ||
-      path.join(__dirname, "../../static/daemon/lbrynet");
+    this.path = process.env.LBRY_DAEMON || path.join(__dirname, "../../dist/daemon/lbrynet");
     this.handlers = [];
     this.subprocess = undefined;
   }
 
   launch() {
+    console.log("launching daemon");
     this.subprocess = spawn(this.path, ["start"]);
     this.subprocess.stdout.on("data", data => console.log(`Daemon: ${data}`));
     this.subprocess.stderr.on("data", data => console.error(`Daemon: ${data}`));
     this.subprocess.on("exit", () => this.fire("exit"));
-    this.subprocess.on("error", error =>
-      console.error(`Daemon error: ${error}`)
-    );
+    this.subprocess.on("error", error => console.error(`Daemon error: ${error}`));
   }
 
   quit() {
