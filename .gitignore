@@ -1,4 +1,3 @@
 node_modules
-static/daemon
 dist
-build/daemon.ver
+build/sdk.ver

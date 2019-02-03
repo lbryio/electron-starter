@@ -3,7 +3,7 @@ const { app } = require("electron");
 const path = require("path");
 const findProcess = require("find-process");
 const createWindow = require("./create-window");
-const Daemon = require("./daemon");
+const SDK = require("./sdk");
 const IS_DEV = process.env.NODE_ENV === "development";
 
 // Auto-reload when we make changes
@@ -21,16 +21,16 @@ app.on("ready", function() {
   // This allows you to run the sdk binary separately and have your app connect to it
   const processListArgs = process.platform === "win32" ? "lbrynet" : "lbrynet start";
   findProcess("name", processListArgs).then(processList => {
-    const isDaemonRunning = processList.length > 0;
+    const isSDKRunning = processList.length > 0;
 
-    if (!isDaemonRunning) {
-      daemon = new Daemon();
-      daemon.on("exit", () => {
-        daemon = null;
-        dialog.showErrorBox("Daemon has Exited");
+    if (!isSDKRunning) {
+      sdk = new SDK();
+      sdk.on("exit", () => {
+        sdk = null;
+        dialog.showErrorBox("SDK has quit");
         app.quit();
       });
-      daemon.launch();
+      sdk.launch();
     }
   });
 });
