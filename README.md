@@ -7,7 +7,7 @@ This is a starter electron project for building apps on top of the LBRY SDK. It 
 ## How to run
 
 ```
-git clone https://github.com/lbry-developers/electron-starter
+git clone https://github.com/lbryio/electron-starter
 cd electron-starter
 yarn
 yarn dev
