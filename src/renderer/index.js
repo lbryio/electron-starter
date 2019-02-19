@@ -51,23 +51,28 @@ resolveButton.addEventListener("click", () => {
     });
 });
 
-// getButton.addEventListener("click", () => {
-//   const value = resolveInput.value;
-//   if (!value) {
-//     help.innerHTML = "You need to enter a name before getting the file.";
-//     return;
-//   }
+//
+// This currently only works for images
+//
+getButton.addEventListener("click", () => {
+  const value = resolveInput.value;
+  if (!value) {
+    help.innerHTML = "You need to enter a name before getting the file.";
+    return;
+  }
 
-//   claimData.innerText = "Loading...";
-//   Lbry.get({ uri: `lbry://${value}` })
-//     .then(res => {
-//       const filePath = res.download_path;
-//       const image = document.createElement("img");
-//       image.src = filePath;
-//       imageWrapper.appendChild(image);
-//       claimData.innerText = null;
-//     })
-//     .catch(error => {
-//       claimData.innerText = JSON.stringify(error, null, 2);
-//     });
-// });
+  // claimData.innerText = "Loading...";
+  // Lbry.get({ uri: `lbry://${value}` })
+  //   .then(result => {
+  //     const filePath = result.download_path;
+  //     const image = document.createElement("img");
+
+  //     image.src = filePath;
+  //     imageWrapper.appendChild(image);
+
+  //     claimData.innerText = JSON.stringify(result, null, 2);
+  //   })
+  //   .catch(error => {
+  //     claimData.innerText = JSON.stringify(error, null, 2);
+  //   });
+});
