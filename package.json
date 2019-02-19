@@ -21,7 +21,7 @@
     "electron-reload": "^1.2.5"
   },
   "lbrySettings": {
-    "lbrynetSDKVersion": "0.30.4",
+    "lbrynetSDKVersion": "0.32.1",
     "lbrynetSDKUrlTemplate": "https://github.com/lbryio/lbry/releases/download/vSDKVER/lbrynet-OSNAME.zip",
     "lbrynetSDKDir": "dist/sdk",
     "lbrynetSDKFileName": "lbrynet"

@@ -29,7 +29,7 @@ const imageWrapper = document.getElementById("image-wrapper");
 
 resolveInput.addEventListener("input", e => {
   const { value } = e.target;
-  const helpText = `Would resolve?? <b>lbry://${value}</b>`;
+  const helpText = `Would resolve <b>lbry://${value}</b>`;
   help.innerHTML = helpText;
 });
 
@@ -41,32 +41,33 @@ resolveButton.addEventListener("click", () => {
   }
 
   claimData.innerText = "Loading...";
-  Lbry.resolve({ uri: `lbry://${value}` })
+  const url = `lbry://${value}`;
+  Lbry.resolve({ urls: url }) // This can be a list of urls
     .then(res => {
-      claimData.innerText = JSON.stringify(res.claim, null, 2);
+      claimData.innerText = JSON.stringify(res[url].claim, null, 2);
     })
     .catch(error => {
       claimData.innerText = JSON.stringify(error, null, 2);
     });
 });
 
-getButton.addEventListener("click", () => {
-  const value = resolveInput.value;
-  if (!value) {
-    help.innerHTML = "You need to enter a name before getting the file.";
-    return;
-  }
+// getButton.addEventListener("click", () => {
+//   const value = resolveInput.value;
+//   if (!value) {
+//     help.innerHTML = "You need to enter a name before getting the file.";
+//     return;
+//   }
 
-  claimData.innerText = "Loading...";
-  Lbry.get({ uri: `lbry://${value}` })
-    .then(res => {
-      // TODO: add simplest way to get an image and display it.
-      // Then add it to the page.
-      // const image = document.createElement("img");
-      // image.src = `${downloadDirectory}/${fileName}`
-      // imageWrapper.appendChild(image);
-    })
-    .catch(error => {
-      claimData.innerText = JSON.stringify(error, null, 2);
-    });
-});
+//   claimData.innerText = "Loading...";
+//   Lbry.get({ uri: `lbry://${value}` })
+//     .then(res => {
+//       const filePath = res.download_path;
+//       const image = document.createElement("img");
+//       image.src = filePath;
+//       imageWrapper.appendChild(image);
+//       claimData.innerText = null;
+//     })
+//     .catch(error => {
+//       claimData.innerText = JSON.stringify(error, null, 2);
+//     });
+// });
