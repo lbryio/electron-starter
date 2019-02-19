@@ -4,12 +4,9 @@ const path = require("path");
 const findProcess = require("find-process");
 const createWindow = require("./create-window");
 const SDK = require("./sdk");
-const IS_DEV = process.env.NODE_ENV === "development";
 
-// Auto-reload when we make changes
-if (IS_DEV) {
-  require("electron-reload")(__dirname);
-}
+// Simple auto reload
+require("electron-reload")(__dirname);
 
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.

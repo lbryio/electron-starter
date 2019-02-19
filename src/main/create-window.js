@@ -1,7 +1,6 @@
 const { BrowserWindow } = require("electron");
 const url = require("url");
 const path = require("path");
-const IS_DEV = process.env.NODE_ENV === "development";
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
@@ -19,11 +18,6 @@ function createWindow() {
       slashes: true
     })
   );
-
-  // Open the DevTools.
-  // if (IS_DEV) {
-  //   mainWindow.webContents.openDevTools();
-  // }
 
   // Emitted when the window is closed.
   mainWindow.on("closed", function() {
