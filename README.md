@@ -9,6 +9,6 @@ This is a starter electron project for building apps on top of the LBRY SDK. It 
 ```
 git clone https://github.com/lbryio/electron-starter
 cd electron-starter
-yarn
-yarn dev
+npm install
+npm run dev
 ```
